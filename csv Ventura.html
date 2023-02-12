@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>Lettura csv</title>
+</head>
+<body>
+
+<p id="testo"></p>
+<script>
+var data = new XMLHttpRequest();
+data.onreadystatechange = function() {
+ if (this.readyState == 4 && this.status == 200) {
+ myFunction(this);
+ }
+};
+data.open("GET", "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-andamento-nazionale/dpc-covid19-ita-andamento-nazionale.csv", true);
+data.send();
+function myFunction(file) {
+ var xmlDoc;
+ xmlDoc = file.responseText;
+  document.getElementById("testo").innerHTML= xmlDoc;
+}
+</script>
+</body>
+</html>
